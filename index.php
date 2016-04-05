@@ -59,7 +59,7 @@
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNi-Ho19wQQZDzgr7eOPsdg3yNEdFEmx8&callback=initMap&libraries=geometry">
         </script>-->
 <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNi-Ho19wQQZDzgr7eOPsdg3yNEdFEmx8&libraries=geometry&callback=initMap"
+    src="https://maps.googleapis.com/maps/api/js?libraries=geometry&callback=initMap"
     async defer></script>
 <script type="text/javascript">
     // select file function only for styling up input[type="file"]
