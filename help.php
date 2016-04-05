@@ -15,5 +15,7 @@
 <body>
 <?php require_once('inc/components/help_header.php'); ?>
 <?php require_once('inc/components/footer.php'); ?>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
