@@ -5,3 +5,10 @@
  * Date: 4/5/16
  * Time: 11:09 PM
  */
+$mysqli = new mysqli('localhost', 'root', '', 'geocoder');
+
+if ($mysqli->connect_error) {
+    die('Could not connect to MySQL: ' . $mysqli->connect_error);
+} else {
+    echo "connection successful";
+}
