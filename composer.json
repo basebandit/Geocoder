@@ -1,0 +1,11 @@
+{
+    "name": "mars/geocoder",
+    "description": "A custom google maps app",
+    "authors": [
+        {
+            "name": "Evanson",
+            "email": "evansonmwangi83@gmail.com"
+        }
+    ],
+    "require": {}
+}
