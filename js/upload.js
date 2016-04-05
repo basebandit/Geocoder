@@ -5,7 +5,8 @@ $(document).ready(function () {
     var percent = $('.percent');
     var bar = $('.bar');
 
-    /* only for image preview *//*
+    /* only for image preview */
+/*
     $("#image").change(function () {
         preview.fadeOut();
 
@@ -16,7 +17,8 @@ $(document).ready(function () {
         oFReader.onload = function (oFREvent) {
             preview.attr('src', oFREvent.target.result).fadeIn();
         };
-    });*/
+    });
+*/
 
     /* submit form with ajax request */
     $('form').ajaxForm({
