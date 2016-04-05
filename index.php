@@ -27,7 +27,7 @@
         <form class="pure-form" action="upload.php" enctype="multipart/form-data" method="post">
 
             <div class="upload">
-                <a onclick="select_file()" class="pure-button">Choose a Image</a>
+                <a onclick="select_file()" class="pure-button">Choose a File</a>
                 <input id="image" type="file" name="image">
             </div>
             <input class="pure-button pure-button-primary" type="submit" value="Upload!">
