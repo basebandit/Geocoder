@@ -6,24 +6,25 @@ var boundRegionCoords;
 
 
 function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16,
-        center: {lat: -1.1025540, lng: 37.0131930},
-        mapTypeId: google.maps.MapTypeId.HYBRID
-    });
-
-    //Define the LatLng Coordinates for the polygon
-    /* var boundRegionCoords = [
-     {lat: 25.774, lng: -80.190},
-     {lat: 18.466, lng: -66.118},
-     {lat: 32.321, lng: -64.757}
-     ];*/
-
+    //Region(polygon) to plot on the map
     boundRegionCoords = [
         {lat: -1.0899350, lng: 37.0199040},
         {lat: -1.1179270, lng: 37.0247480},
         {lat: -1.1634730, lng: 37.0812830}
     ];
+
+    //Wrapping my region coordinates in a bound so as
+    //to get the center of the bound and start the
+    //initial map plotting from the bound's center coordinates.
+    var bound = new google.maps.LatLngBounds();
+    for (var i = 0; i < boundRegionCoords.length; i++) {
+        bound.extend(new google.maps.LatLng(boundRegionCoords[i]));
+    }
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 16,
+        center: bound.getCenter() /*{lat:-1.1267040000000001, lng:37.05059349999999}*/,
+        mapTypeId: google.maps.MapTypeId.HYBRID
+    });
 
     //Construct the Polygon
     boundRegion = new google.maps.Polygon({
