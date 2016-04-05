@@ -1,5 +1,5 @@
 <?php
-if (($handle = fopen('uploads/juja.csv', 'r')) === false) {
+if (($handle = fopen('uploads/jujaa.csv', 'r')) === false) {
     die('Error opening file');
 }
 
@@ -13,6 +13,5 @@ while ($row = fgetcsv($handle, 1024, ',')) {
 fclose($handle);
 
 echo json_encode($complete);
+
 ?>
-
-
