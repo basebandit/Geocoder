@@ -2,16 +2,41 @@ var map;
 var infoWindow;
 var boundRegion;
 var contentString;
-var boundRegionCoords;
 
 
 function initMap() {
+    //Server side json output of the database query
+    var result;
+
     //Region(polygon) to plot on the map
-    boundRegionCoords = [
+    var boundRegionCoords = [
         {lat: -1.0899350, lng: 37.0199040},
         {lat: -1.1179270, lng: 37.0247480},
         {lat: -1.1634730, lng: 37.0812830}
     ];
+    var arrayCoords = new Array();
+    var oReq = new XMLHttpRequest(); //New request object
+    oReq.onload = function () {
+        //This is where you handle what to do with the response.
+        //The actual data is found on this.responseText
+        result = this.responseText;
+        $.each(JSON.parse(result), function (index, obj) {
+            console.log(obj.lat + ":" + obj.lng);
+            arrayCoords.push(obj.lat, obj.lng);
+        });
+    };
+    oReq.open("get", "search.php", true);
+    //                               ^ Don't block the rest of the execution.
+    //                                 Don't wait until the request finishes to
+    //                                 continue.
+    oReq.send();
+
+    for (var i = 0; i < arrayCoords.length; i++) {
+        var coords = arrayCoords[i].split(",");
+        console.log(coords);
+        boundRegionCoords[i] = new google.maps.LatLng(coords[0], coords[1]);
+    }
+    console.log(boundRegionCoords);
 
     //Wrapping my region coordinates in a bound so as
     //to get the center of the bound and start the
@@ -43,9 +68,9 @@ function initMap() {
 
     var geocoder = new google.maps.Geocoder();
 
-    document.getElementById('submit').addEventListener('click', function () {
-        geocodeAddress(geocoder, map);
-    });
+//    document.getElementById('submit').addEventListener('click', function () {
+//        geocodeAddress(geocoder, map);
+//    });
 }
 
 function geocodeAddress(geocoder, resultsMap) {
