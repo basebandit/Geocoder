@@ -17,11 +17,12 @@
         //The actual data is found on this.responseText
         result = this.responseText;
         $.each(JSON.parse(result), function (index, obj) {
-            alert(obj.lng);
+            console.log(obj.lat + ":" + obj.lng);
+            alert(obj.lat + " , " + obj.lng);
         });
 
     };
-    oReq.open("get", "csvtojson.php", true);
+    oReq.open("get", "search.php", true);
     //                               ^ Don't block the rest of the execution.
     //                                 Don't wait until the request finishes to
     //                                 continue.
