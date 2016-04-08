@@ -148,9 +148,9 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
     text-align: center;
 }
 
-#form {
+/*#form {
     margin-left: 14em;
-}
+}*/
 
 footer {
     background-color: #168ccc;
