@@ -1,5 +1,5 @@
 <?php
-if (($handle = fopen('uploads/juja.csv', 'r')) === false) {
+if (($handle = fopen('uploads/bermuda.csv', 'r')) === false) {
     die('Error opening file');
 }
 
