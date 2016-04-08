@@ -17,12 +17,12 @@
         //The actual data is found on this.responseText
         result = this.responseText;
         $.each(JSON.parse(result), function (index, obj) {
-            console.log(obj.lat + ":" + obj.lng);
+            //console.log(obj.lat + ":" + obj.lng);
             alert(obj.lat + " , " + obj.lng);
         });
 
     };
-    oReq.open("get", "search.php", true);
+    oReq.open("get", "upload.php", true);
     //                               ^ Don't block the rest of the execution.
     //                                 Don't wait until the request finishes to
     //                                 continue.
