@@ -8,22 +8,26 @@
  */
 require_once 'inc/db/connect.php';
 
-if (isset($_POST['submit'])) {
+//if (isset($_POST['submit'])) {
+//$address = $_POST['address'];
 // Sanitize the search term to prevent injection attacks
-    $sanitized = $mysqli->real_escape_string($_POST['address']);
-    echo $sanitized;
+$sanitized = $mysqli->real_escape_string('juja');
 //Run the query
-    $query = $mysqli->query("SELECT lat,lng from csvtbl where csv_name='$sanitized'");
+$query = $mysqli->query("SELECT lat,lng from csvtbl where csv_name='$sanitized'");
 //check results
-    if (!$query->num_rows) {
-        return false;
-    }
+if (!$query->num_rows) {
+    return false;
+}
 
 // Loop and fetch objects
-    while ($row = $query->fetch_object()) {
-        $data[] = $row;
-    }
+while ($row = $query->fetch_object()) {
+    $data[] = $row;
+}
 
 // Build our return result
-    echo json_encode($data);
-}
+$response["area"] = $sanitized;
+$response["data"] = $data;
+echo json_encode($response);
+//} else {
+//    echo "No search input found";
+//}
