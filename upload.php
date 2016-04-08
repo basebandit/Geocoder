@@ -1,4 +1,5 @@
 <?php
+
 require_once('inc/db/connect.php');
 define("BASE_PATH", dirname(__FILE__));
 define("UPLOAD_DIR", BASE_PATH . "/uploads/");
@@ -29,7 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (move_uploaded_file($_FILES['image']['tmp_name'], $path . $name)) {
                 $status = 'Image successfully uploaded!';
                 chmod($path . $name, 0777);
-                if (($handle = fopen($path . $name, "r")) !== FALSE) {
+                $fileName = $path . $name;
+                if (($handle = fopen($fileName, "r")) !== FALSE) {
                     fgetcsv($handle);
                     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
                         $num = count($data);
@@ -47,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     fclose($handle);
                 }
 
-                echo "File data successfully imported to database!!";
+                /*                echo "File data successfully imported to database!!"; */
                 $mysqli->close();
             } else {
                 $status = 'Upload Fail: Unknown error occurred!';
@@ -63,5 +65,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // echo out json encoded status
-echo json_encode(array('status' => $status));
+/* echo json_encode(array('status' => $status)); */
 ?>
